@@ -1,0 +1,6 @@
+framework module Pods_ContactDB {
+  umbrella header "Pods-ContactDB-umbrella.h"
+
+  export *
+  module * { export * }
+}
