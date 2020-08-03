@@ -16,6 +16,7 @@ protocol AddContactDelegate: AnyObject
 class AddViewController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     weak var delegate:AddContactDelegate?
     //MARK: --PROPERTIES
+   
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldMobile: UITextField!
     @IBOutlet weak var imageAvatar: UIImageView!
@@ -66,28 +67,6 @@ class AddViewController: UITableViewController, UINavigationControllerDelegate, 
 //            self.present(alert, animated: true, completion: nil)
 //        }
 //         picker.dismiss(animated: true, completion: nil)
-//    }
-    
-    //MARK: -Seque
-    
-//     @IBAction func doneButtonDidTouch(segue: UIStoryboardSegue) {
-//            print("Done")
-//    //        if let addPersonTbVController = segue.source as? AddViewController {
-//    //            if let person = addPersonTbVController.contact {
-//    //                self.contactsItem.append(person)
-//    //            }
-//    //        }
-//            contact.name = textFieldName.text!
-//            contact.email = textFieldEmail.text!
-//            contact.phone = textFieldMobile.text!
-//            contact.position = textFieldPosition.text!
-//            delegate?.addContact(contact)
-//            self.navigationController?.dismiss(animated: true, completion: nil)
-//        }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "save" {
-//            self.contact = Contacts(name: self.textFieldName.text ?? "Default Name", position: self.textFieldPosition.text ?? "Default position", email: self.textFieldEmail.text ?? "Default email", phone: self.textFieldMobile.text ?? "Default phone" )
-//        }
 //    }
     
 }

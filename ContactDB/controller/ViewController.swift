@@ -47,17 +47,20 @@ class ViewController: UIViewController {
 
     @objc func handleAddContact(){
         let vc = storyboard?.instantiateViewController(withIdentifier: "addView") as! AddViewController
-//        vc.handleDone(in: self) { (name, phone, position, email) in
-//            let newContact = Contacts(name: name, phone: phone, position: position, email: email)
-                
-//            RealmService.shared.create(newContact)
-//        }
         vc.delegate = self
         vc.navigationItem.largeTitleDisplayMode = .never
         present(UINavigationController(rootViewController: vc),animated: true)
     }
 }
-           
+        //MARK: TABLE VIEW DELEGATE
+    extension ViewController:UITableViewDelegate{
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let vc = storyboard?.instantiateViewController(identifier: "detailView") as! DetailViewController
+            vc.navigationItem.largeTitleDisplayMode = .never
+     
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
         //MARK: -CREATE A TITLE
     extension ViewController:UITableViewDataSource{
         func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -83,11 +86,10 @@ class ViewController: UIViewController {
         }
 }
 
-extension ViewController: AddContactDelegate {
-    func addContact(contact: Contacts) {
+    extension ViewController: AddContactDelegate {
+        func addContact(contact: Contacts) {
             self.dismiss(animated: true) {
             self.TableView.reloadData()
-                print(self.dataList!)
         }
     }
 }
