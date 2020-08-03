@@ -47,13 +47,13 @@ class ViewController: UIViewController {
 
     @objc func handleAddContact(){
         let vc = storyboard?.instantiateViewController(withIdentifier: "addView") as! AddViewController
-        vc.handleDone(in: self) { (name, phone, position, email) in
-            let newContact = Contacts(name: name, phone: phone, position: position, email: email)
-  
-            RealmService.shared.create(newContact)
-        }
-        
-    vc.navigationItem.largeTitleDisplayMode = .never
+//        vc.handleDone(in: self) { (name, phone, position, email) in
+//            let newContact = Contacts(name: name, phone: phone, position: position, email: email)
+                
+//            RealmService.shared.create(newContact)
+//        }
+        vc.delegate = self
+        vc.navigationItem.largeTitleDisplayMode = .never
         present(UINavigationController(rootViewController: vc),animated: true)
     }
 }
@@ -81,4 +81,13 @@ class ViewController: UIViewController {
             cell.configure(with: currentPerson)
             return cell
         }
+}
+
+extension ViewController: AddContactDelegate {
+    func addContact(contact: Contacts) {
+            self.dismiss(animated: true) {
+            self.TableView.reloadData()
+                print(self.dataList!)
+        }
+    }
 }

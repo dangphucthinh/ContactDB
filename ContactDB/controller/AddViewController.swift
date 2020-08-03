@@ -8,8 +8,13 @@
 
 import UIKit
 
-class AddViewController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+protocol AddContactDelegate: AnyObject
+ {
+    func addContact(contact: Contacts)
+}
+class AddViewController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    weak var delegate:AddContactDelegate?
     //MARK: --PROPERTIES
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldMobile: UITextField!
@@ -28,17 +33,10 @@ class AddViewController: UITableViewController, UINavigationControllerDelegate, 
        }
     
     //MARK: --HANDLE FUNCTION Delegate
-    @objc func handleDone(in vc: UIViewController,
-    completion: @escaping (String, String, String, String) -> Void){
-        guard let name = textFieldName.text,
-            let phone = textFieldMobile.text,
-            let position = textFieldPosition.text,
-            let email = textFieldEmail.text
-            else {
-                print("Invalid filed!")
-            return
-        }
-        completion(name, phone, position, email)
+    @objc func handleDone(){
+        self.currentContact = Contacts(name: self.textFieldName.text ?? "Default Name", phone: self.textFieldMobile.text ?? "Default phone", position: self.textFieldPosition.text ?? "Default position", email: self.textFieldEmail.text ?? "Default email" )
+        RealmService.shared.create(currentContact)
+        delegate?.addContact(contact: currentContact)
 
     
     }
