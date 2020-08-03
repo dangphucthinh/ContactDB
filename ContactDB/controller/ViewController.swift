@@ -18,7 +18,11 @@ class ViewController: UIViewController {
  
     var dataList : Results<Contacts>!
     
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         self.TableView.reloadData()
+    }
+    
         override func viewDidLoad() {
             super.viewDidLoad()
           //  dbContact = DBManager.shareInstance
