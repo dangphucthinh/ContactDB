@@ -38,8 +38,6 @@ class AddViewController: UITableViewController, UINavigationControllerDelegate, 
         self.currentContact = Contacts(name: self.textFieldName.text ?? "Default Name", phone: self.textFieldMobile.text ?? "Default phone", position: self.textFieldPosition.text ?? "Default position", email: self.textFieldEmail.text ?? "Default email")
         RealmService.shared.create(currentContact)
         delegate?.addContact(contact: currentContact)
-
-    
     }
 
     @objc func handleCancel(){
