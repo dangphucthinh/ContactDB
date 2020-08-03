@@ -46,18 +46,20 @@ class ViewController: UIViewController {
 
 
     @objc func handleAddContact(){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "addView") as! AddViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
         vc.delegate = self
         vc.navigationItem.largeTitleDisplayMode = .never
         present(UINavigationController(rootViewController: vc),animated: true)
     }
 }
+
         //MARK: TABLE VIEW DELEGATE
     extension ViewController:UITableViewDelegate{
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let vc = storyboard?.instantiateViewController(identifier: "detailView") as! DetailViewController
+            let vc = storyboard?.instantiateViewController(identifier: "DetailViewController") as! DetailViewController
             vc.navigationItem.largeTitleDisplayMode = .never
-     
+            let person = dataList[indexPath.row]
+            vc.currentContact = person
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -83,6 +85,26 @@ class ViewController: UIViewController {
             let currentPerson = dataList[indexPath.row]
             cell.configure(with: currentPerson)
             return cell
+        }
+        
+        func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,view,nil) in
+                let currentPerson = self.dataList[indexPath.row]
+                // create the alert
+                 let alert = UIAlertController(title: "Delete contact", message: "Would you like to delete this contact?", preferredStyle: UIAlertController.Style.alert)
+
+                 // add the actions (buttons)
+                 alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: {action in
+                    RealmService.shared.delete(currentPerson)
+                 }))
+                 alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+
+                 // show the alert
+                 self.present(alert, animated: true, completion: nil)
+                
+            }
+
+            return UISwipeActionsConfiguration(actions: [deleteAction])
         }
 }
 

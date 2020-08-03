@@ -37,13 +37,13 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="pGt-An-hpO">
                                             <rect key="frame" x="100" y="26.000000000000004" width="120.66666666666669" height="41.333333333333343"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEU-ha-zyz">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEU-ha-zyz">
                                                     <rect key="frame" x="0.0" y="0.0" width="120.66666666666667" height="20.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position, Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1Y-IA-12c">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Position, Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1Y-IA-12c">
                                                     <rect key="frame" x="0.0" y="24.333333333333336" width="120.66666666666667" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -82,7 +82,6 @@
                     <navigationItem key="navigationItem" title="Contacts" id="wAa-mt-IAT"/>
                     <connections>
                         <outlet property="TableView" destination="PRB-5x-jWZ" id="Okt-JD-2j1"/>
-                        <segue destination="JQW-P4-11o" kind="presentation" id="UHI-xN-Wqs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -92,7 +91,7 @@
         <!--Detail View Controller-->
         <scene sceneID="oIv-bh-z3K">
             <objects>
-                <tableViewController storyboardIdentifier="detailView" id="GGP-ee-RYf" customClass="DetailViewController" customModule="ContactDB" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GGP-ee-RYf" customClass="DetailViewController" customModule="ContactDB" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bEE-2Q-8y7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,7 +216,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="J4f-3T-xpt"/>
                     <connections>
-                        <segue destination="307-TC-6Qb" kind="presentation" id="gjz-3G-1wo"/>
+                        <outlet property="emailButton" destination="YAf-Pf-le0" id="FgG-s8-O5L"/>
+                        <outlet property="nameLabel" destination="OWx-Ug-24a" id="vkf-Y4-5eM"/>
+                        <outlet property="phoneButton" destination="GUf-f7-fCA" id="WqF-2n-7PS"/>
+                        <outlet property="positionLabel" destination="Hgz-nj-ASo" id="Bis-pm-PzN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esU-4I-XGS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -227,9 +229,9 @@
         <!--Add View Controller-->
         <scene sceneID="w5T-xL-iyw">
             <objects>
-                <tableViewController storyboardIdentifier="addView" id="JQW-P4-11o" customClass="AddViewController" customModule="ContactDB" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JQW-P4-11o" customClass="AddViewController" customModule="ContactDB" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hcl-Hc-fcy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
@@ -411,12 +413,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w7o-Vk-l8e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2932" y="117"/>
+            <point key="canvasLocation" x="2223" y="117"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="phU-hb-qdD">
             <objects>
-                <tableViewController storyboardIdentifier="editView" id="307-TC-6Qb" customClass="EditViewController" customModule="ContactDB" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EditViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="307-TC-6Qb" customClass="EditViewController" customModule="ContactDB" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="na2-Ww-n2V">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -611,7 +613,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y5Z-cv-XbG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2932" y="842"/>
+            <point key="canvasLocation" x="2255" y="842"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yrw-nv-v2u">
@@ -631,65 +633,7 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="h5T-mX-U0Z">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nUI-ng-Bvd" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="baA-bl-9tn">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="JQW-P4-11o" kind="relationship" relationship="rootViewController" id="N30-7u-MmC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="enn-8S-bp5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1933" y="117"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="yk2-LW-7bA">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nD4-Ua-qhW" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oaC-b5-by7">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="GGP-ee-RYf" kind="relationship" relationship="rootViewController" id="X6T-7C-ccu"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y4r-a8-yVe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="128" y="842"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="srN-rC-or0">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l56-0Y-X6B" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5es-zs-IJL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="307-TC-6Qb" kind="relationship" relationship="rootViewController" id="FO1-Xc-AxT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="weJ-Ew-04Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2030" y="842"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="FO1-Xc-AxT"/>
-        <segue reference="UHI-xN-Wqs"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Camera" width="600" height="600"/>
         <image name="User" width="600" height="600"/>

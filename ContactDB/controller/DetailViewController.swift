@@ -14,14 +14,23 @@ class DetailViewController: UITableViewController {
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var phoneButton: UIButton!
+    
+    var currentContact: Contacts!
+    var textName = String() //declear to pass name person
+    var textMobile = String()
+    var textPosition = String()
+    var textEmail = String()
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameLabel?.text = currentContact.name
+        positionLabel?.text = currentContact.position
+        emailButton?.setTitle(currentContact.email, for: .normal)
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(handleEdit))
     }
     
     @objc func handleEdit(){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "editView") as! EditViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
