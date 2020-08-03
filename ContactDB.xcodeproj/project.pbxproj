@@ -17,6 +17,7 @@
 		4D69AAC024D593D400A4DC65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D69AABF24D593D400A4DC65 /* Assets.xcassets */; };
 		4D69AAC324D593D400A4DC65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D69AAC124D593D400A4DC65 /* LaunchScreen.storyboard */; };
 		4D69AAD524D5972A00A4DC65 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D69AAD424D5972A00A4DC65 /* RealmService.swift */; };
+		4DD203B124D81520005134DC /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD203B024D81520005134DC /* ContactTableViewCell.swift */; };
 		4DDDDDCD24D6F3A500702805 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDDDCC24D6F3A500702805 /* DBManager.swift */; };
 		5EA7CE4DBA759456E0E5596E /* Pods_ContactDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA7ABC04BF30F8598CC36B3 /* Pods_ContactDB.framework */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		4D69AAC224D593D400A4DC65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D69AAC424D593D400A4DC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D69AAD424D5972A00A4DC65 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		4DD203B024D81520005134DC /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		4DDDDDCC24D6F3A500702805 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		6F897ABE9501210BFA86ACAE /* Pods-ContactDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactDB.debug.xcconfig"; path = "Target Support Files/Pods-ContactDB/Pods-ContactDB.debug.xcconfig"; sourceTree = "<group>"; };
 		ABA7ABC04BF30F8598CC36B3 /* Pods_ContactDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContactDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 		4D69AAB524D593D300A4DC65 /* ContactDB */ = {
 			isa = PBXGroup;
 			children = (
+				4DD203AF24D81512005134DC /* cell */,
 				4DDDDDCB24D6F35D00702805 /* Modal */,
 				4D69AAD324D5971A00A4DC65 /* function */,
 				4D69AACA24D5955100A4DC65 /* controller */,
@@ -103,6 +106,14 @@
 				4D69AAD424D5972A00A4DC65 /* RealmService.swift */,
 			);
 			path = function;
+			sourceTree = "<group>";
+		};
+		4DD203AF24D81512005134DC /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				4DD203B024D81520005134DC /* ContactTableViewCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		4DDDDDCB24D6F35D00702805 /* Modal */ = {
@@ -251,6 +262,7 @@
 				4D2C00ED24D7B77E00574359 /* ViewController.swift in Sources */,
 				4D69AAB924D593D300A4DC65 /* SceneDelegate.swift in Sources */,
 				4DDDDDCD24D6F3A500702805 /* DBManager.swift in Sources */,
+				4DD203B124D81520005134DC /* ContactTableViewCell.swift in Sources */,
 				4D2C00EF24D7C60200574359 /* DetailViewController.swift in Sources */,
 				4D1252E024D7F87100BA5C64 /* EditViewController.swift in Sources */,
 			);
