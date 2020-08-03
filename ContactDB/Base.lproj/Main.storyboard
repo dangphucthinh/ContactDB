@@ -216,10 +216,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="J4f-3T-xpt"/>
                     <connections>
+                        <outlet property="TableView" destination="bEE-2Q-8y7" id="U0I-sX-oEY"/>
                         <outlet property="emailButton" destination="YAf-Pf-le0" id="FgG-s8-O5L"/>
                         <outlet property="nameLabel" destination="OWx-Ug-24a" id="vkf-Y4-5eM"/>
                         <outlet property="phoneButton" destination="GUf-f7-fCA" id="WqF-2n-7PS"/>
                         <outlet property="positionLabel" destination="Hgz-nj-ASo" id="Bis-pm-PzN"/>
+                        <segue destination="307-TC-6Qb" kind="presentation" id="jJM-qe-3It"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esU-4I-XGS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -420,7 +422,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="EditViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="307-TC-6Qb" customClass="EditViewController" customModule="ContactDB" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="na2-Ww-n2V">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
@@ -610,6 +612,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="jDw-ws-SnU"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="zLe-S0-mr5" id="adp-WT-I2k"/>
+                        <outlet property="nameTextField" destination="VrO-OE-Lle" id="5zf-RF-epX"/>
+                        <outlet property="phoneTextField" destination="kfD-4U-BCp" id="FBx-60-bvn"/>
+                        <outlet property="positionTextField" destination="7xI-P7-55O" id="UqK-W6-BNw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y5Z-cv-XbG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
