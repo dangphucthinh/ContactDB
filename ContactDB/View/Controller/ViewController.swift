@@ -48,9 +48,8 @@ class ViewController: UIViewController {
     //MARK: -SWITCH TO ADD VIEW
         @objc func handleAddContact(){
             let vc = storyboard?.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
-            vc.delegate = self
             vc.navigationItem.largeTitleDisplayMode = .never
-            present(UINavigationController(rootViewController: vc),animated: true)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 
@@ -107,14 +106,6 @@ class ViewController: UIViewController {
             return UISwipeActionsConfiguration(actions: [deleteAction])
         }
     }
-        //MARK: -DELEGATE
-extension ViewController: AddContactDelegate {
-        func addContact(contact: Contacts) {
-            self.dismiss(animated: true) {
-            self.TableView.reloadData()
-        }
-    }
-}
 
 
 

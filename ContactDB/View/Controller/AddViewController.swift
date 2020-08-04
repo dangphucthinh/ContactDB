@@ -9,12 +9,7 @@
 import UIKit
 
 
-protocol AddContactDelegate: AnyObject
- {
-    func addContact(contact: Contacts)
-}
 class AddViewController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    weak var delegate:AddContactDelegate?
     //MARK: --PROPERTIES
    
     @IBOutlet weak var textFieldName: UITextField!
@@ -34,7 +29,7 @@ class AddViewController: UITableViewController, UINavigationControllerDelegate, 
        }
     
     //MARK: --HANDLE FUNCTION Delegate
-    @objc func handleDone(){
+    @objc func handleDone(_ sender: UIBarButtonItem){
         let name: String = textFieldName.text!,
         phone: String = textFieldMobile.text!,
         position: String = textFieldPosition.text!,
@@ -51,11 +46,11 @@ class AddViewController: UITableViewController, UINavigationControllerDelegate, 
         }else{
             RealmService.shared.create(currentContact)
         }
-        delegate?.addContact(contact: currentContact)
+        self.navigationController?.popViewController(animated: true)
     }
 
     @objc func handleCancel(){
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     //MARK: --IMPORT AVATAR
 //     @IBAction func importPhoto(_ sender: Any) {
