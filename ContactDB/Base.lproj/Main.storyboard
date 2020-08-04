@@ -190,19 +190,21 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUf-f7-fCA">
-                                                    <rect key="frame" x="32" y="37" width="139" height="33"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0935336719" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XE-Ah-Tpd">
+                                                    <rect key="frame" x="32" y="29" width="113" height="39"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <state key="normal" title="1-(234) 567-8901"/>
-                                                </button>
+                                                    <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="GUf-f7-fCA" firstAttribute="leading" secondItem="Kze-6h-SPH" secondAttribute="leading" id="6j6-CW-9LC"/>
+                                                <constraint firstItem="6XE-Ah-Tpd" firstAttribute="bottom" secondItem="8ee-3w-V8Z" secondAttribute="bottomMargin" id="96P-j7-Pfz"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Kze-6h-SPH" secondAttribute="trailing" id="BG6-lE-Bet"/>
+                                                <constraint firstItem="6XE-Ah-Tpd" firstAttribute="leading" secondItem="8ee-3w-V8Z" secondAttribute="leadingMargin" constant="12" id="LeU-0e-8lj"/>
                                                 <constraint firstItem="Kze-6h-SPH" firstAttribute="leading" secondItem="8ee-3w-V8Z" secondAttribute="leading" constant="32" id="McS-Ta-Ami"/>
-                                                <constraint firstItem="GUf-f7-fCA" firstAttribute="top" secondItem="Kze-6h-SPH" secondAttribute="bottom" constant="4" id="VcG-Q1-Fl8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6XE-Ah-Tpd" secondAttribute="trailing" constant="249" id="Rja-yx-PiS"/>
                                                 <constraint firstItem="Kze-6h-SPH" firstAttribute="top" secondItem="8ee-3w-V8Z" secondAttribute="top" constant="16" id="bef-ht-Akf"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GUf-f7-fCA" secondAttribute="trailing" constant="32" id="uDC-Ur-fgZ"/>
+                                                <constraint firstItem="6XE-Ah-Tpd" firstAttribute="top" secondItem="8ee-3w-V8Z" secondAttribute="topMargin" constant="18" id="dzz-gH-cJE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -216,17 +218,16 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="J4f-3T-xpt"/>
                     <connections>
-                        <outlet property="TableView" destination="bEE-2Q-8y7" id="U0I-sX-oEY"/>
                         <outlet property="emailButton" destination="YAf-Pf-le0" id="FgG-s8-O5L"/>
                         <outlet property="nameLabel" destination="OWx-Ug-24a" id="vkf-Y4-5eM"/>
-                        <outlet property="phoneButton" destination="GUf-f7-fCA" id="WqF-2n-7PS"/>
+                        <outlet property="phoneLabel" destination="6XE-Ah-Tpd" id="VWG-Po-mDj"/>
+                        <outlet property="phoneView" destination="8ee-3w-V8Z" id="jze-qj-5nv"/>
                         <outlet property="positionLabel" destination="Hgz-nj-ASo" id="Bis-pm-PzN"/>
-                        <segue destination="307-TC-6Qb" kind="presentation" id="jJM-qe-3It"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esU-4I-XGS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="842"/>
+            <point key="canvasLocation" x="1037.68115942029" y="841.74107142857144"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="w5T-xL-iyw">
@@ -422,7 +423,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="EditViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="307-TC-6Qb" customClass="EditViewController" customModule="ContactDB" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="na2-Ww-n2V">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
