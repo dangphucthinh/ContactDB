@@ -33,7 +33,7 @@ class ViewController: UIViewController {
                 self.TableView.reloadData()
             }
             TableView.dataSource = self
-            //MARK:--BUTTON ADD delegate
+    //MARK:--BUTTON ADD delegate
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAddContact))
         }
     
@@ -103,6 +103,7 @@ class ViewController: UIViewController {
                  // show the alert
                  self.present(alert, animated: true, completion: nil)
             }
+            
             return UISwipeActionsConfiguration(actions: [deleteAction])
         }
     }

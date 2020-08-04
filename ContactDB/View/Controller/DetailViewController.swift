@@ -34,7 +34,7 @@ class DetailViewController: UITableViewController {
        nameLabel?.text = currentContact.name
        positionLabel?.text = currentContact.position
        emailButton?.setTitle(currentContact.email, for: .normal)
-        phoneLabel?.text = currentContact.phone
+       phoneLabel?.text = currentContact.phone
     }
     
     //MARK: -Call

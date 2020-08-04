@@ -41,6 +41,6 @@ class EditViewController: UITableViewController {
                                     "email": email,
                                     "position": position]
         RealmService.shared.update(current, with: dict)
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 }

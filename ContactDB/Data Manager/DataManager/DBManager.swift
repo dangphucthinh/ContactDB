@@ -21,7 +21,6 @@ class Contacts: Object {
         self.position = position
         self.email = email
     }
-
 }
 //
 //class DBManager{
