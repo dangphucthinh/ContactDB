@@ -35,8 +35,22 @@ class AddViewController: UITableViewController, UINavigationControllerDelegate, 
     
     //MARK: --HANDLE FUNCTION Delegate
     @objc func handleDone(){
-        self.currentContact = Contacts(name: self.textFieldName.text ?? "Default Name", phone: self.textFieldMobile.text ?? "Default phone", position: self.textFieldPosition.text ?? "Default position", email: self.textFieldEmail.text ?? "Default email")
-        RealmService.shared.create(currentContact)
+        let name: String = textFieldName.text!,
+        phone: String = textFieldMobile.text!,
+        position: String = textFieldPosition.text!,
+        email:String = textFieldEmail.text!
+        self.currentContact = Contacts(name: name, phone: phone, position: position, email: email)
+        
+        if(name.isEmpty || phone.isEmpty){
+            let alert = UIAlertController(title: "Error", message: "You have to input name or phone", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+            }))
+            self.present(alert,animated: true,completion: nil)
+            return
+            
+        }else{
+            RealmService.shared.create(currentContact)
+        }
         delegate?.addContact(contact: currentContact)
     }
 
