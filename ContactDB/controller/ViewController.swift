@@ -18,46 +18,43 @@ class ViewController: UIViewController {
  
     var dataList : Results<Contacts>!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-         self.TableView.reloadData()
+    //MARK: -RELOAD TABLE
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+             self.TableView.reloadData()
     }
-    
+    //MARK: -INIT
         override func viewDidLoad() {
             super.viewDidLoad()
-          //  dbContact = DBManager.shareInstance
-          //  dataList = dbContact.getDataFromDB()
-            
             let realm = RealmService.shared.realm
             dataList = realm.objects(Contacts.self)
             
             notificationToken = realm.observe{ (notification, realm) in
                 self.TableView.reloadData()
             }
-            
             TableView.dataSource = self
             //MARK:--BUTTON ADD delegate
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAddContact))
-            
         }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        notificationToken?.invalidate()
-        RealmService.shared.stopObservingErrors(in: self)
-    }
+    //MARK: -AFTER DELETE REALM
+        override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            notificationToken?.invalidate()
+            RealmService.shared.stopObservingErrors(in: self)
+        }
     
 
-
-    @objc func handleAddContact(){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
-        vc.delegate = self
-        vc.navigationItem.largeTitleDisplayMode = .never
-        present(UINavigationController(rootViewController: vc),animated: true)
+    //MARK: -SWITCH TO ADD VIEW
+        @objc func handleAddContact(){
+            let vc = storyboard?.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
+            vc.delegate = self
+            vc.navigationItem.largeTitleDisplayMode = .never
+            present(UINavigationController(rootViewController: vc),animated: true)
+        }
     }
-}
 
-        //MARK: TABLE VIEW DELEGATE
+        //MARK: -TABLE VIEW DELEGATE
     extension ViewController:UITableViewDelegate{
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let vc = storyboard?.instantiateViewController(identifier: "DetailViewController") as! DetailViewController
@@ -90,7 +87,7 @@ class ViewController: UIViewController {
             cell.configure(with: currentPerson)
             return cell
         }
-        
+        //MARK: -SWAP TO DELETE CONTACT
         func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){(action,view,nil) in
                 let currentPerson = self.dataList[indexPath.row]
@@ -105,17 +102,18 @@ class ViewController: UIViewController {
 
                  // show the alert
                  self.present(alert, animated: true, completion: nil)
-                
             }
-
             return UISwipeActionsConfiguration(actions: [deleteAction])
         }
-}
-
-    extension ViewController: AddContactDelegate {
+    }
+        //MARK: -DELEGATE
+extension ViewController: AddContactDelegate {
         func addContact(contact: Contacts) {
             self.dismiss(animated: true) {
             self.TableView.reloadData()
         }
     }
 }
+
+
+
