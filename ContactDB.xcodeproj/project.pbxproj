@@ -13,6 +13,7 @@
 		4D2C00EF24D7C60200574359 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C00EE24D7C60200574359 /* DetailViewController.swift */; };
 		4D513A2A24D98D18002CB461 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D513A2924D98D18002CB461 /* SceneDelegate.swift */; };
 		4D513A3524D99623002CB461 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D513A3424D99623002CB461 /* AlertService.swift */; };
+		4D513A3724D99932002CB461 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D513A3624D99932002CB461 /* Validation.swift */; };
 		4D69AAB724D593D300A4DC65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D69AAB624D593D300A4DC65 /* AppDelegate.swift */; };
 		4D69AABE24D593D300A4DC65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D69AABC24D593D300A4DC65 /* Main.storyboard */; };
 		4D69AAC024D593D400A4DC65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D69AABF24D593D400A4DC65 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		4D2C00EE24D7C60200574359 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4D513A2924D98D18002CB461 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4D513A3424D99623002CB461 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		4D513A3624D99932002CB461 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		4D69AAB324D593D300A4DC65 /* ContactDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D69AAB624D593D300A4DC65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D69AABD24D593D300A4DC65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				4D513A3424D99623002CB461 /* AlertService.swift */,
+				4D513A3624D99932002CB461 /* Validation.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			files = (
 				4D2C00EB24D7B74700574359 /* AddViewController.swift in Sources */,
 				4D69AAD524D5972A00A4DC65 /* RealmManager.swift in Sources */,
+				4D513A3724D99932002CB461 /* Validation.swift in Sources */,
 				4D69AAB724D593D300A4DC65 /* AppDelegate.swift in Sources */,
 				4D2C00ED24D7B77E00574359 /* ViewController.swift in Sources */,
 				4D513A3524D99623002CB461 /* AlertService.swift in Sources */,
