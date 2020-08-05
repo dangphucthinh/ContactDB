@@ -40,7 +40,21 @@ class EditViewController: UITableViewController {
                                     "phone": phone,
                                     "email": email,
                                     "position": position]
+        if(!name!.isValidName){
+            AlertService.errorAlert(in: self, name: "name")
+        }
+        else if (!position!.isValidPosition){
+            AlertService.errorAlert(in: self, name: "position")
+        }
+        else if(!email!.isValidEmail){
+            AlertService.errorAlert(in: self, name: "mail")
+        }
+        else if(!phone!.isValidPhone){
+            AlertService.errorAlert(in: self, name: "phone")
+        }
+        else{
         RealmService.shared.update(current, with: dict)
+        }
         self.navigationController?.popViewController(animated: true)
     }
 }

@@ -44,7 +44,6 @@ class ViewController: UIViewController {
             RealmService.shared.stopObservingErrors(in: self)
         }
     
-
     //MARK: -SWITCH TO ADD VIEW
         @objc func handleAddContact(){
             let vc = storyboard?.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
@@ -102,7 +101,6 @@ class ViewController: UIViewController {
                  // show the alert
                  self.present(alert, animated: true, completion: nil)
             }
-            
             return UISwipeActionsConfiguration(actions: [deleteAction])
         }
     }

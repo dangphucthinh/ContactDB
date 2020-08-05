@@ -36,14 +36,19 @@ class AddViewController: UITableViewController, UINavigationControllerDelegate, 
         email:String = textFieldEmail.text!
         self.currentContact = Contacts(name: name, phone: phone, position: position, email: email)
         
-        if(name.isEmpty || phone.isEmpty){
-            let alert = UIAlertController(title: "Error", message: "You have to input name or phone", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
-            }))
-            self.present(alert,animated: true,completion: nil)
-            return
-            
-        }else{
+        if(!name.isValidName){
+            AlertService.errorAlert(in: self, name: "name")
+        }
+        else if (position.isValidPosition){
+            AlertService.errorAlert(in: self, name: "position")
+        }
+        else if(!email.isValidEmail){
+            AlertService.errorAlert(in: self, name: "mail")
+        }
+        else if(!phone.isValidPhone){
+            AlertService.errorAlert(in: self, name: "phone")
+        }
+        else{
             RealmService.shared.create(currentContact)
         }
         self.navigationController?.popViewController(animated: true)
